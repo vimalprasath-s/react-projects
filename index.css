@@ -166,3 +166,30 @@ Variables defined here are available everywhere in your app. */
     border-radius: 8px;
     cursor: pointer;
 }
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+.menu-image {
+    height: 100px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.menu-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.restraurant-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu-item-name {
+    min-width: 200px;
+}
