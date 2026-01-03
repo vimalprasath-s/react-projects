@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
@@ -53,6 +54,12 @@ const Body = () => {
     setFilteredData(result);
     console.log(restaurantData);
   };
+
+  const isOnline = useOnlineStatus();
+
+  if (!isOnline) {
+    return <div>Check your internet connection!!!</div>;
+  }
 
   return isLoading ? (
     <Shimmer />
