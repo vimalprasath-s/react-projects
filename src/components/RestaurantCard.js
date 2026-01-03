@@ -13,17 +13,21 @@ const RestaurantCard = ({ resData }) => {
     veg,
     id,
   } = resData?.info;
-  // console.log("detailsss", avgRating, cloudinaryImageId, costForTwo, cuisines, locality, name, sla, totalRatingsString, veg)
+
   const restroImage =
     name === "Spice Kingdom"
       ? DEFAULT_RESTAURANT_IMAGE
       : `${CDN_URL + cloudinaryImageId}`;
   return (
-    <div className="restro-card">
-      <img className="restro-image" alt="restro-image" src={restroImage} />
-      <div className="restro-header">{name}</div>
-      <div className="restro-cuisine">{cuisines.join(", ")}</div>
-      <div className="restro-details">
+    <div className="w-65 p-2 shadow-sm border border-gray-400 min-h-80 rounded hover:shadow-lg">
+      <img
+        className="w-full h-50 rounded"
+        alt="restro-image"
+        src={restroImage}
+      />
+      <div className="font-semibold my-1">{name}</div>
+      <div className="text-sm text-gray-600 pb-1">{cuisines.join(", ")}</div>
+      <div className="flex justify-between">
         <span className="restro-rating">{avgRating}</span>
         <span className="restro-mins">{sla.deliveryTime}</span>
         <span className="restro-budget">{costForTwo}</span>

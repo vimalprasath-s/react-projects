@@ -65,21 +65,30 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body-container">
-      <div className="search">
-        <input
-          onChange={handleSearchChange}
-          value={searchQuery}
-          className="search-input"
-          placeholder="Search Restaurant"
-        />
-        <button onClick={handleSearch} className="search-button">
-          Search
-        </button>
-        <button onClick={getTopRatedRestaurant} className="search-button">
+      <div className="flex p-6 justify-between items-center">
+        <div>
+          <input
+            onChange={handleSearchChange}
+            value={searchQuery}
+            className="w-100 border-2 border-amber-500 mr-4 px-4 py-2"
+            placeholder="Search Restaurant"
+          />
+          <button
+            onClick={handleSearch}
+            className="bg-amber-500 text-white px-4 py-2 rounded-md cursor-pointer"
+          >
+            Search
+          </button>
+        </div>
+
+        <button
+          onClick={getTopRatedRestaurant}
+          className="bg-amber-500 text-white px-4 py-2 rounded-md cursor-pointer"
+        >
           Top Restaurants
         </button>
       </div>
-      <div className="restro-container">
+      <div className="flex flex-wrap gap-6 px-6 mb-4">
         {filteredData.map((restaurant) => (
           <Link
             key={restaurant.info.id}
