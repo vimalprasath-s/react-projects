@@ -21,7 +21,11 @@ const Cart = () => {
         Clear Cart
       </button>
       {cartItems.map((cart) => (
-        <div key={cart.name} className="flex justify-between p-2 border-b">
+        <div
+          data-testid="cartItem"
+          key={cart.name}
+          className="flex justify-between p-2 border-b"
+        >
           <div className="font-semibold">{cart.name}</div>
           <div>₹ {cart.price}</div>
         </div>

@@ -12,7 +12,7 @@ const Header = () => {
 
   // Subscribing to the particular store
   const cartItem = useSelector((store) => store.cart.items);
-  console.log(cartItem);
+  // console.log(cartItem);
 
   const { loggedInUser } = useContext(userContext);
   return (

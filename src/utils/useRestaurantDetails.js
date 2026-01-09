@@ -9,7 +9,7 @@ const useRestaurantDetails = (id) => {
     );
     const data = await response.json();
     setRestaurantDetails(data);
-    console.log("printing hook", restaurantDetails);
+    // console.log("printing hook", restaurantDetails);
     // setIsLoading(false);
   };
   useEffect(() => {

@@ -41,47 +41,54 @@ const AppLayout = () => {
   );
 };
 // Router config
-const appRouter = createBrowserRouter([
+const appRouter = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <AppLayout />,
+      errorElement: <Error />,
+      children: [
+        {
+          path: "/",
+          element: <Body />,
+        },
+        {
+          path: "/about",
+          element: (
+            <Suspense fallback={<h2>Loading Grocery...</h2>}>
+              <About />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        {
+          path: "/cart",
+          element: <Cart />,
+        },
+        {
+          path: "/grocery",
+          element: (
+            <Suspense fallback={<h2>Loading Grocery...</h2>}>
+              <Grocery />
+            </Suspense>
+          ),
+        },
+        {
+          path: "/restaurant/:id",
+          element: <RestaurantMenu />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <AppLayout />,
-    errorElement: <Error />,
-    children: [
-      {
-        path: "/",
-        element: <Body />,
-      },
-      {
-        path: "/about",
-        element: (
-          <Suspense fallback={<h2>Loading Grocery...</h2>}>
-            <About />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/grocery",
-        element: (
-          <Suspense fallback={<h2>Loading Grocery...</h2>}>
-            <Grocery />
-          </Suspense>
-        ),
-      },
-      {
-        path: "/restaurant/:id",
-        element: <RestaurantMenu />,
-      },
-    ],
-  },
-]);
+    future: {
+      v7_relativeSplatPath: true,
+    },
+  }
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // root.render(<AppLayout />)

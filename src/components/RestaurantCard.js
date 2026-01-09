@@ -14,6 +14,8 @@ const RestaurantCard = ({ resData }) => {
     id,
   } = resData?.info;
 
+  // console.log("afaf", resData);
+
   const restroImage =
     name === "Spice Kingdom"
       ? DEFAULT_RESTAURANT_IMAGE

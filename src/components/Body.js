@@ -43,12 +43,11 @@ const Body = () => {
     const updateRestaurantData = restaurantData.filter(
       (restaurant) => restaurant.info.avgRating >= 4.5
     );
-    setRestaurantData(updateRestaurantData);
+    setFilteredData(updateRestaurantData);
   };
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
-    console.log(searchQuery);
   };
 
   const handleSearch = () => {
@@ -57,7 +56,6 @@ const Body = () => {
         restaurant.info.name.toLowerCase().includes(searchQuery.toLowerCase())
       ) || [];
     setFilteredData(result);
-    console.log(restaurantData);
   };
   const isOnline = useOnlineStatus();
 
@@ -74,6 +72,7 @@ const Body = () => {
           <input
             onChange={handleSearchChange}
             value={searchQuery}
+            data-testid="searchInput"
             className="w-100 border-2 border-amber-500 mr-4 px-4 py-2 rounded-2xl"
             placeholder="Search Restaurant"
           />
@@ -94,6 +93,7 @@ const Body = () => {
         <button
           onClick={getTopRatedRestaurant}
           className="bg-amber-500 text-white px-4 py-2 rounded-md cursor-pointer"
+          data-testid="topRestaurantBtn"
         >
           Top Restaurants
         </button>
@@ -103,6 +103,7 @@ const Body = () => {
           <Link
             key={restaurant.info.id}
             to={`/restaurant/${restaurant.info.id}`}
+            data-testid="restroCard"
           >
             {restaurant.info.veg ? (
               <VegLabelRestaurantCard resData={restaurant} />

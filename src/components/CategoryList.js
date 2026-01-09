@@ -15,7 +15,10 @@ const CategoryList = ({ categoryItem }) => {
     );
   };
   return (
-    <div className="flex justify-between p-3 border-b border-gray-400">
+    <div
+      data-testid="foodMenuCard"
+      className="flex justify-between p-3 border-b border-gray-400"
+    >
       <div className="text-left">
         <div>{categoryItem.card.info.name}</div>
         <div className="text-gray-700">
@@ -24,6 +27,7 @@ const CategoryList = ({ categoryItem }) => {
       </div>
       <div className="relative">
         <span
+          data-testid="addCartButton"
           onClick={addCart}
           className="absolute bg-white text-green-800 bottom-0 left-4 cursor-pointer text-xs px-2 border border-green-300 shadow rounded"
         >
